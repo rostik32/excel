@@ -10,7 +10,6 @@
     "prettier/prettier": "error"
   },
   "extends": [
-    "plugin:prettier/recommended",
-    "prettier/standard"
+    "prettier"
   ]
 }
