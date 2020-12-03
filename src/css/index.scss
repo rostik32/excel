@@ -1,3 +1,54 @@
-body {
-  background-color: blue;
+@import '~normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+}
+
+.excel {
+	position: relative;
+	color: #888;
+	height: 100%;
+	max-width: 100%;
+	font-size: 0.8 rem;
+
+	&-btn {
+		height: 30px;
+		min-width: 30px;
+		padding: 3px;
+		text-align: center;
+		position: relative;
+		display: inline-block;
+		color: rgba(0, 0, 0, 0.418);
+		border-radius: 5px;
+		user-select: none;
+
+		.material-icons {
+			font-size: 22px;
+		}
+
+		&:hover {
+			background: rgb(201, 199, 199);
+			color: #fff;
+			cursor: pointer;
+		}
+
+		&:active,
+		&.active {
+			color: rgb(219, 255, 215);
+		}
+	}
+}
+
+@import 'header';
+@import 'toolbar';
+@import 'formula';
+@import 'table';
+@import 'dashboards'
