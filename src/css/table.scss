@@ -2,63 +2,93 @@
 @import 'mixins';
 
 .excel__table {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 106px;
-	overflow-x: auto;
-	padding-bottom: 2px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 106px;
+  overflow-x: auto;
+  padding-bottom: 2px;
 
-	.row {
-		display: flex;
-		min-height: 20px;
-		height: $row-height;
+  .row {
+    display: flex;
+    min-height: 20px;
+    height: $row-height;
 
-		&-info {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			min-width: $info-cell-width;
-			height: 100%;
-			border: 1px solid $border-color;
-			background-color: #f8f9fa;
-			border-top: none;
-		}
+    &-info {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      min-width: $info-cell-width;
+      height: 100%;
+      border: 1px solid $border-color;
+      background-color: #f8f9fa;
+      border-top: none;
+      user-select: none;
+    }
 
-		&-data {
-			display: flex;
-		}
-	}
+    &-data {
+      display: flex;
+    }
+  }
 
-	.column {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border: 1px solid $border-color;
-		background-color: #f8f9fa;
-		border-top: none;
-		border-left: none;
-		min-width: 40px;
-		width: $cell-width;
-		height: 100%;
-	}
+  .column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $border-color;
+    background-color: #f8f9fa;
+    border-top: none;
+    border-left: none;
+    min-width: 40px;
+    width: $cell-width;
+    height: 100%;
+    position: relative;
+    user-select: none;
+  }
 
-	.cell {
-		min-width: 40px;
-		width: $cell-width;
-		padding: 5px;
-		height: 100%;
-		border: 1px solid #e2e3e3;
-		border-top: none;
-		border-left: none;
-		color: #111;
+  .cell {
+    min-width: 40px;
+    width: $cell-width;
+    padding: 5px;
+    height: 100%;
+    border: 1px solid #e2e3e3;
+    border-top: none;
+    border-left: none;
+    color: #111;
     white-space: nowrap;
     outline: none;
 
-		&.selected {
-			border: none;
-			outline: 2px solid #3c74ff;
-			z-index: 2;
-		}
-	}
+    &.selected {
+      border: none;
+      outline: 2px solid #3c74ff;
+      z-index: 2;
+    }
+  }
+
+  .row-resize,
+  .col-resize {
+    position: absolute;
+    background-color: rgb(54, 130, 243);
+    opacity: 0;
+    bottom: 0;
+		right: 0;
+		z-index: 1;
+
+    &:hover {
+      opacity: 1 !important;
+    }
+  }
+
+  .col-resize {
+    width: 4px;
+    top: 0;
+    cursor: col-resize;
+  }
+
+  .row-resize {
+    height: 4px;
+    left: 0;
+    cursor: row-resize;
+  }
 }
