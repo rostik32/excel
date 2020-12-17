@@ -15,7 +15,7 @@ class DOM {
   }
 
   text(text) {
-    if (typeof text === 'string') {
+    if (typeof text !== 'undefined') {
       this.$el.textContent = text;
       return this;
     }
@@ -69,6 +69,21 @@ class DOM {
 
   getCoords() {
     return this.$el.getBoundingClientRect();
+  }
+
+  getStyle(style = []) {
+    return style.reduce((res, style) => {
+      res[style] = this.$el.style[style];
+      return res;
+    }, {});
+  }
+
+  attr(name, value) {
+    if (value) {
+      this.$el.setAttribute(name, value);
+      return this;
+    }
+    return this.$el.getAttribute(name);
   }
 
   get data() {
